@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/api-4",
+      "source": "/api-4/",
       "destination": "http://jp-iij-1.lcf.icu:42992/api/",
       "methods": ["POST"]
     }
