@@ -1,0 +1,126 @@
+﻿<html>
+<head>
+    <title>啊云网页开户</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: url('https://p.sda1.dev/12/46b9fda1489355d2a1ba98524702f354/bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .form {
+        width: 90%;
+        max-width: 400px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+        font-weight: bold;
+    }
+    input[type="text"], input[type="password"], select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        display: block;
+        margin: 0 auto;
+        background: linear-gradient(to bottom, #333, #222);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background: linear-gradient(to bottom, #555, #444);
+    }
+    p {
+        text-align: center;
+        color: #666;
+    }
+    #result {
+        color: red;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h1>啊云网页开户</h1>
+            <form>
+                <label for="username">用户名(QQ号,不能输入中文和字母):</label>
+                <input id="username" type="text">
+                <br>
+                <label for="password">密码(必须有大写字母和小写字母和数字):</label>
+                <input type="password" id="password">
+                <br>
+                <label for="key">卡密(qq群公告有,251662205):</label>
+                <input type="text" id="key">
+                <br>
+                <label for="backend">选择机器:</label>
+                <select id="backend">
+                    <option value="1号机">1号机-IP:111.67.207.129:22220</option>
+                    <option value="3号机">3号机-IP:3.baishu.link:19373</option>
+                    <option value="4号机">4号机-IP:111.180.188.62:54422</option>
+                </select>
+                <br>
+                <input type="submit" value="开户" onclick="tijiao()">
+        <p id="result"></p>
+<script>
+var servers = {
+    "1号机": "./api",
+    "3号机": "http://backend3.com/api",
+    "4号机": "./api-4"
+};
+
+function tijiao() {
+    event.preventDefault(); // 阻止默认的提交行为
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var key = document.getElementById("key").value;
+    var backend = document.getElementById("backend").value;
+    var backendUrl = servers[backend];
+    if (username === "Administrator" || username === "在这个用户输入管理员密码" || username === "1247533340") {
+        window.location.href='./fz/';
+    } else {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', backendUrl);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            var response = JSON.parse(xhr.responseText);
+            document.getElementById('result').textContent = "提示:"+response.msg;
+        };
+        xhr.onerror = function() {
+            document.getElementById('result').textContent = "提示:出现异常，请联系柏树";
+        };
+        xhr.send('name=' + encodeURIComponent(username) + '&pwd=' + encodeURIComponent(password) + '&key=' + encodeURIComponent(key));
+    }
+}
+
+</script>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
