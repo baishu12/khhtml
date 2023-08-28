@@ -127,6 +127,7 @@ function tijiao() {
     var backendUrl = servers[backend];
     var captcha = document.getElementById("captcha").value;
     var verifyCode = document.getElementById('captcha-img').getAttribute("data-code");
+    console.log("哈哈哈，给你放的水，验证码是"+verifyCode)
     if (captcha !== verifyCode) {
         document.getElementById('result').textContent = "提示:验证码错误";
         return;
