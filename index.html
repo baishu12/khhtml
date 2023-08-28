@@ -113,7 +113,6 @@ function loadCaptcha() {
       document.getElementById('captcha-img').onclick = loadCaptcha; 
       document.getElementById('captcha-img').style.cursor = "pointer";
       document.getElementById('captcha-img').title = "点击刷新验证码";
-        console.log(response.data.verifyCode)
     };
     xhr.send();
 }
