@@ -105,7 +105,7 @@ var servers = {
 
 function loadCaptcha() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://www.mxnzp.com/api/verifycode/code?len=10&type=0&app_id=qdsnkfffoirnitec&app_secret=BIyAxAFueGpWB0GR6zEPQpPfxlXvVl6g');
+    xhr.open('GET', 'https://www.mxnzp.com/api/verifycode/code?len=4&type=0&app_id=qdsnkfffoirnitec&app_secret=BIyAxAFueGpWB0GR6zEPQpPfxlXvVl6g');
     xhr.onload = function() {
       var response = JSON.parse(xhr.responseText);
       document.getElementById('captcha-img').src = response.data.verifyCodeImgUrl; 
@@ -113,6 +113,7 @@ function loadCaptcha() {
       document.getElementById('captcha-img').onclick = loadCaptcha; 
       document.getElementById('captcha-img').style.cursor = "pointer";
       document.getElementById('captcha-img').title = "点击刷新验证码";
+        console.log(response.data.verifyCode)
     };
     xhr.send();
 }
@@ -127,7 +128,6 @@ function tijiao() {
     var backendUrl = servers[backend];
     var captcha = document.getElementById("captcha").value;
     var verifyCode = document.getElementById('captcha-img').getAttribute("data-code");
-    console.log("哈哈哈，给你放的水，验证码是"+verifyCode)
     if (captcha !== verifyCode) {
         document.getElementById('result').textContent = "提示:验证码错误";
         return;
