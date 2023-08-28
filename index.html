@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head>
     <title>啊云网页开户</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,6 +61,12 @@
     #result {
         color: red;
     }
+#captcha-img {
+max-width: 50%;
+height: auto;
+display: block;
+margin: 0 auto;
+}
 </style>
 </head>
 <body>
@@ -84,14 +90,35 @@
                     <option value="4号机">4号机-IP:111.180.188.62:54422</option>
                 </select>
                 <br>
+                <label for="captcha">验证码:</label>
+                <img id="captcha-img" src="">
+                <input type="text" id="captcha">
+                <br>
                 <input type="submit" value="开户" onclick="tijiao()">
-        <p id="result"></p>
+            </form>
+            <p id="result"></p>
 <script>
+
 var servers = {
     "1号机": "https://pc1kh.baishu.eu.org/api",
     "3号机": "./api-3/",
     "4号机": "https://pc4kh.baishu.eu.org/api"
 };
+
+function loadCaptcha() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://www.mxnzp.com/api/verifycode/code?len=6&type=0&app_id=qdsnkfffoirnitec&app_secret=BIyAxAFueGpWB0GR6zEPQpPfxlXvVl6g');
+    xhr.onload = function() {
+      var response = JSON.parse(xhr.responseText);
+      document.getElementById('captcha-img').src = response.data.verifyCodeImgUrl; 
+      document.getElementById('captcha-img').setAttribute("data-code", response.data.verifyCode);
+      document.getElementById('captcha-img').onclick = loadCaptcha; 
+      document.getElementById('captcha-img').style.cursor = "pointer";
+      document.getElementById('captcha-img').title = "点击刷新验证码";
+    };
+    xhr.send();
+}
+window.onload = loadCaptcha;
 
 function tijiao() {
     event.preventDefault(); // 阻止默认的提交行为
@@ -100,6 +127,12 @@ function tijiao() {
     var key = document.getElementById("key").value;
     var backend = document.getElementById("backend").value;
     var backendUrl = servers[backend];
+    var captcha = document.getElementById("captcha").value;
+    var verifyCode = document.getElementById('captcha-img').getAttribute("data-code");
+    if (captcha !== verifyCode) {
+        document.getElementById('result').textContent = "提示:验证码错误";
+        return;
+    }
     if (username === "Administrator" || username === "在这个用户输入管理员密码" || username === "1247533340") {
         window.location.href='./fz/';
     } else {
@@ -118,8 +151,6 @@ function tijiao() {
 }
 
 </script>
-
-            </form>
         </div>
     </div>
 </body>
