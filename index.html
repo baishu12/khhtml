@@ -3,70 +3,135 @@
     <title>啊云网页开户</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: url('https://p.sda1.dev/12/46b9fda1489355d2a1ba98524702f354/bg.jpg') no-repeat center center fixed;
-        background-size: cover;
-        height: 100vh;
-    }
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-    .form {
-        width: 90%;
-        max-width: 400px;
-        background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-    h1 {
-        text-align: center;
-        color: #333;
-    }
-    label {
-        display: block;
-        margin-bottom: 10px;
-        color: #333;
-        font-weight: bold;
-    }
-    input[type="text"], input[type="password"], select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 20px;
-        box-sizing: border-box;
-    }
-    input[type="submit"] {
-        display: block;
-        margin: 0 auto;
-        background: linear-gradient(to bottom, #333, #222);
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background: linear-gradient(to bottom, #555, #444);
-    }
-    p {
-        text-align: center;
-        color: #666;
-    }
-    #result {
-        color: red;
-    }
+body {
+    font-family: Arial, sans-serif;
+    background: url('https://p.sda1.dev/12/46b9fda1489355d2a1ba98524702f354/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form {
+    width: 90%;
+    max-width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #333, #222);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #555, #444);
+}
+
+p {
+    text-align: center;
+    color: #666;
+}
+
+#result {
+    color: red;
+}
+
+#open-account {
+    width: 90%;
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#open-account h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#open-account label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
 #captcha-img {
 max-width: 50%;
 height: auto;
 display: block;
 margin: 0 auto;
 }
+
+#open-account input[type="text"], #open-account input[type="password"], #open-account select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+#open-account input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #333, #222);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#open-account input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #555, #444);
+}
+
+@media (max-width: 767px) {
+    .form {
+        max-width: 90%;
+    }
+    #open-account {
+        max-width: 90%;
+    }
+}
+
 </style>
 </head>
 <body>
