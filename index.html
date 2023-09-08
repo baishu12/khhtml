@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>啊云网页开户</title>
+    <title>柏树的网页开户</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
@@ -137,7 +137,7 @@ margin: 0 auto;
 <body>
     <div class="container">
         <div class="form">
-            <h1>啊云网页开户</h1>
+            <h1>柏树的网页开户</h1>
             <form>
                 <label for="username">用户名(QQ号,不能输入中文和字母):</label>
                 <input id="username" type="text">
@@ -145,13 +145,14 @@ margin: 0 auto;
                 <label for="password">密码(必须有大写字母和小写字母和数字):</label>
                 <input type="password" id="password">
                 <br>
-                <label for="key">卡密(qq群公告有,251662205):</label>
+                <label for="key">卡密:</label>
                 <input type="text" id="key">
                 <br>
                 <label for="backend">选择机器:</label>
                 <select id="backend">
                     <option value="1号机">1号机-IP:111.67.207.129:22220</option>
                     <option value="4号机">4号机-IP:pc4.baishu.eu.org:10298</option>
+                    <option value="5号机">5号机-IP:未知（无用的人的云电脑）</option>
                 </select>
                 <br>
                 <label for="captcha">验证码:</label>
@@ -165,7 +166,8 @@ margin: 0 auto;
 
 var servers = {
     "1号机": "https://pc1kh.baishu.eu.org/api",
-    "4号机": "https://pc4kh.baishu.eu.org/api"
+    "4号机": "https://pc4kh.baishu.eu.org/api",
+    "5号机": "https://wuyongpc1.baishu.eu.org/api"
 };
 
 function loadCaptcha() {
