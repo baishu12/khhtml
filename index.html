@@ -151,13 +151,7 @@ margin: 0 auto;
                 <label for="backend">选择机器:</label>
                 <select id="backend">
                     <option value="1号机">1号机-IP:111.67.207.129:22220</option>
-                    <option value="4号机">4号机-IP:pc4.baishu.eu.org:10298</option>
-                    <option value="5号机">5号机-IP:未知（无用的人的云电脑）</option>
                 </select>
-                <br>
-                <label for="captcha">验证码:</label>
-                <input type="text" id="captcha">
-                <img id="captcha-img" src="">
                 <br>
                 <input type="submit" value="开户" onclick="tijiao()">
             </form>
@@ -165,24 +159,9 @@ margin: 0 auto;
 <script>
 
 var servers = {
-    "1号机": "https://pc1kh.baishu.eu.org/api",
-    "4号机": "https://pc4kh.baishu.eu.org/api",
-    "5号机": "https://wuyongpc1.baishu.eu.org/api"
+    "1号机": "https://pc1kh.baishu.eu.org/api"
 };
 
-function loadCaptcha() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://www.mxnzp.com/api/verifycode/code?len=6&type=0&app_id=qdsnkfffoirnitec&app_secret=BIyAxAFueGpWB0GR6zEPQpPfxlXvVl6g');
-    xhr.onload = function() {
-      var response = JSON.parse(xhr.responseText);
-      document.getElementById('captcha-img').src = response.data.verifyCodeImgUrl; 
-      document.getElementById('captcha-img').setAttribute("data-code", response.data.verifyCode);
-      document.getElementById('captcha-img').onclick = loadCaptcha; 
-      document.getElementById('captcha-img').style.cursor = "pointer";
-      document.getElementById('captcha-img').title = "点击刷新验证码";
-    };
-    xhr.send();
-}
 window.onload = loadCaptcha;
 
 function tijiao() {
