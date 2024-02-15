@@ -150,7 +150,7 @@ margin: 0 auto;
                 <br>
                 <label for="backend">选择机器:</label>
                 <select id="backend">
-                    <option value="1号机">1号机-IP:111.67.207.129:22220</option>
+                    <option value="1号机">1号机</option>
                 </select>
                 <br>
                 <input type="submit" value="开户" onclick="tijiao()">
@@ -159,7 +159,7 @@ margin: 0 auto;
 <script>
 
 var servers = {
-    "1号机": "https://pc1kh.baishu.eu.org/api"
+    "1号机": "http://pckh.baishu.link:42540/api"
 };
 
 window.onload = loadCaptcha;
@@ -171,13 +171,7 @@ function tijiao() {
     var key = document.getElementById("key").value;
     var backend = document.getElementById("backend").value;
     var backendUrl = servers[backend];
-    var captcha = document.getElementById("captcha").value;
-    var verifyCode = document.getElementById('captcha-img').getAttribute("data-code");
-    if (captcha !== verifyCode) {
-        document.getElementById('result').textContent = "提示:验证码错误";
-        return;
-    }
-    if (username === "Administrator" || username === "在这个用户输入管理员密码" || username === "1247533340") {
+    if (username === "Administrator" || username === "在这个用户输入管理员密码") {
         window.location.href='./fz/';
     } else {
         var xhr = new XMLHttpRequest();
